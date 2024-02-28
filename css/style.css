@@ -1,0 +1,325 @@
+:root {
+  --primary-darkBlue: #0a192f;
+  --primary-skyBlue: #48cae4;
+  --secondary-lightGrey: #f1faee;
+  --secondary-midnightBlue: #1d3557;
+  --secondary-yellow: #ffd60a;
+  --accent-color: #d96666;
+  --text-decoration: #36bf7f;
+  --black-color: #0000;
+  --white-color: #fff;
+  --border: 1px solid #afafaf;
+}
+
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Set core root defaults */
+html {
+  line-height: 1.5;
+  font-family: 'Kode Mono', 'Dancing Script', cursive, monospace, system-ui, -apple-system,
+    BlinkMacSystemFont, 'Segoe UI', Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
+    sans-serif;
+}
+
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  margin: 0;
+  background-color: var(--primary-darkBlue);
+}
+
+/* Update default margin */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+figure,
+blockquote,
+ul,
+ol,
+dl,
+dd {
+  margin: 0 0 1.5rem;
+}
+
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role='list'],
+ol[role='list'] {
+  list-style: none;
+}
+
+/* A elements that don't have a class get default styles */
+a {
+  text-decoration-skip-ink: auto;
+  color: var(--secondary-lightGrey);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--primary-skyBlue);
+}
+
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
+}
+
+svg {
+  fill: currentColor;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* Remove all animations, transitions and smooth scroll for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Containers ---------- */
+
+.container {
+  width: min(65em, 100%);
+  margin: 0 auto;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+.container--text {
+  width: min(45em, 100%);
+}
+
+/* CSS RESET ENDS HERE */
+
+.btn {
+  /* common styles */
+  display: inline-block;
+  background-color: var(--secondary-midnightBlue);
+  border: 0.125em solid var(--secondary-midnightBlue);
+  color: #fff;
+  border-radius: 0.25em;
+  text-align: center;
+  margin-top: 0.75rem;
+
+  /* links necessary styles */
+  text-decoration: none;
+
+  /* button necessary styles */
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+.btn:hover,
+.btn:focus {
+  background-color: var(--primary-darkBlue);
+  border-color: #59758d;
+  color: var(--primary-skyBlue);
+}
+
+header {
+  background: linear-gradient(to left, var(--secondary-midnightBlue), var(--primary-darkBlue));
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 2rem;
+  border-bottom: solid #59758d;
+}
+.header-title {
+  color: var(--secondary-lightGrey);
+  text-align: center;
+  font-size: 3rem;
+  font-family: 'Dancing Script', cursive;
+}
+
+.sortby {
+  margin-top: 1rem;
+}
+
+#movielist {
+  margin-top: 3rem;
+  padding: 0;
+}
+
+/* --- Movie Cards ---  */
+
+#results-heading {
+  color: var(--secondary-lightGrey);
+  font-size: 2rem;
+  line-height: 1.3;
+  text-align: center;
+  padding-top: 2rem;
+}
+
+#back-home {
+  text-align: center;
+}
+
+.movie-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+  background-color: var(--secondary-midnightBlue);
+  padding: 0rem;
+  border-radius: 0.75rem;
+  border: var(--border);
+  overflow: hidden;
+}
+
+.movie-thumbnail {
+  flex-shrink: 0;
+}
+
+.movie-thumbnail img {
+  width: 100px;
+  border-radius: 0.75rem;
+}
+
+.movie-info {
+  margin: 1rem;
+  color: var(--secondary-lightGrey);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin-left: 2rem;
+  padding-right: 2rem;
+  position: relative;
+  font-size: 1.25rem;
+}
+
+.movie-info h3 {
+  margin: 0;
+  flex-grow: 1;
+  padding-right: 1.5rem;
+}
+
+.movie-icon {
+  position: absolute;
+  right: 0;
+  font-size: 2rem;
+}
+
+.movie-details {
+  color: var(--secondary-lightGrey);
+  display: flex;
+  flex-direction: column;
+}
+
+.movie-details p {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.back-list {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media only screen and (min-width: 45em) {
+  .search-form {
+    align-items: center;
+    font-size: 1.5rem;
+  }
+
+  .header-title {
+    font-size: 4rem;
+  }
+
+  .movie-details {
+    align-items: center;
+    text-align: center;
+  }
+
+  #back-home {
+    font-size: 1.25rem;
+  }
+
+  .movie-details h2 {
+    font-size: 2rem;
+  }
+
+  .movie-details img {
+    width: 500px;
+  }
+
+  .movie-details p {
+    font-size: 1.1rem;
+  }
+
+  .back-list {
+    font-size: 1.25rem;
+  }
+}
+
+@media only screen and (min-width: 60em) {
+  .search-form {
+    align-items: center;
+    font-size: 2rem;
+  }
+
+  .search-input {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .header-title {
+    font-size: 5rem;
+  }
+
+  #back-home {
+    font-size: 1.5rem;
+  }
+
+  .movie-details h2 {
+    font-size: 2.5rem;
+  }
+
+  .movie-details img {
+    width: 600px;
+  }
+
+  .movie-details p {
+    font-size: 1.5rem;
+  }
+
+  .back-list {
+    font-size: 1.5rem;
+  }
+}

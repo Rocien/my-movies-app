@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Movies - PWA</title>
+
+    <!-- Content Security Policy (CSP) -->
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="style-src 'self' fonts.googleapis.com;
+      script-src 'self' 'unsafe-inline';
+      font-src fonts.gstatic.com;
+      img-src *;
+      connect-src 'self' random-data-api.com moviedb-server-m35e.onrender.com;"
+    />
+
+    <!-- Google font and the preconnects -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Icon  -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
+    />
+
+    <link rel="stylesheet" href="./css/style.css" />
+
+    <!-- Add the other links for the PWA - manifest, icons, theme, etc -->
+    <link rel="apple-touch-icon" sizes="180x180" href="./img/apple-touch-icon.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="./img/favicon-16x16.png" />
+    <link rel="manifest" href="./manifest.json" />
+    <link rel="mask-icon" href="./img/safari-pinned-tab.svg" color="#5bbad5" />
+    <meta name="msapplication-TileColor" content="#2b5797" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <script src="./js/main.js" type="module"></script>
+  </head>
+  <body>
+    <header>
+      <h1 class="header-title">My Movies</h1>
+    </header>
+    <div class="container">
+      <main>
+        <form class="search-form">
+          <!-- Search Input -->
+          <div class="search-input">
+            <input
+              type="search"
+              id="search"
+              name="search"
+              placeholder="Type here to search movies"
+            />
+            <button class="btn" type="submit">Search</button>
+          </div>
+
+          <!-- Sort Preference -->
+          <div class="sortby">
+            <select id="sort-preference" name="sort">
+              <option value="popularity">Sort by popularity</option>
+              <option value="release-date">Sort by release date</option>
+              <option value="vote">Sort by votes</option>
+            </select>
+          </div>
+        </form>
+        <!-- This is where the list of movies will be displayed  -->
+        <div class="list-items">
+          <ul id="movielist"></ul>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
